@@ -1,12 +1,23 @@
 const fetch = require('node-fetch')
+const Promise = require('es6-promise').Promise
 
 function randint(min, max) {
 	// inclusive of min and max
   return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
+const memeSources = [
+	'https://www.reddit.com/r/blackpeopletwitter/top.json',
+	'https://www.reddit.com/r/me_irl/top.json',
+	'https://www.reddit.com/r/memes/top.json'
+]
+
 function getRandomMeme() {
-	return fetch('https://www.reddit.com/r/blackpeopletwitter/top.json')
+	return Promise.all(memeSources.map(meme => fetch(meme)))
+		.then(results => {
+			var chosen = randint(0, results.length -1)
+			return results[chosen]
+		})
 		.then(res => res.json())
 		.then(json => {
 			var chosen = randint(0, json.data.children.length - 1)
