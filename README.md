@@ -7,7 +7,7 @@
 
 ## How to use
 
-Just just `npm install` to install the requirements and then `npm run start` or `node index.js` to run the bot.
+Just run `npm install` to install the requirements and then `npm run start` or `node index.js` to run the bot.
 
 The command to get the bot to tell you a meme is `i'm tilting`
 
@@ -21,3 +21,8 @@ For example, with the `hubot-slack` adapter:
 	ADAPTER=slack HUBOT_SLACK_TOKEN=<your slack bot token> node index.js  # run the bot
 
 _note: you will need to register the bot for your slack team to get an access token_
+
+
+## Contributing
+
+pls
